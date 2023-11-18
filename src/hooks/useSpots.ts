@@ -44,7 +44,7 @@ export const useSpots = () => {
   useEffect(() => {
     const interval = setInterval(()=>{
       getSpost();
-    }, 9000)
+    }, 1000)
     return ()=>{
       clearInterval(interval)
     }
