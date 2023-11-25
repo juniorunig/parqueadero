@@ -1,7 +1,7 @@
 export const About = () => {
   return (
     <section id="acerca" className="p-4 min-h-screen w-full text-white flex item-center flex-col  ">
-      <h2 className="mx-auto text-4xl text-center font-bold  uppercase w-full  text-gradient bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">acerca de</h2>
+      <h2 className="mx-auto text-lg mt-4 lg:text-4xl text-center font-bold  uppercase w-full  text-gradient bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">acerca de</h2>
       <div className="max-w-[1020px] mx-auto mt-4 font-mono flex flex-col gap-4">
         <p>
           En el mundo actual, la eficiencia en la gestión del espacio y la
