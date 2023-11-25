@@ -15,7 +15,7 @@ export const Hero = () => {
       </div>
       <div className="w-[50%] px-4">
         <div className="bg-white rounded-l-full w-full h-[400px] grid place-content-center ">
-          <img src="src/assets/parkingImg.png" alt="" className="" />
+          <img src="https://cdni.iconscout.com/illustration/premium/thumb/parking-garage-6938528-5673122.png?f=webp" alt="" className="" />
         </div>
       </div>
     </section>
