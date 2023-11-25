@@ -1,7 +1,35 @@
+
+const links = [
+  {
+    name: 'Inicio',
+    path: '#home'
+  },
+  {
+    name: 'prueba',
+    path: '#vehiculos'
+  },
+  {
+    name: 'acerca de',
+    path: '#acerca'
+  },
+  
+]
+
+
 export const Header = () => {
   return (
-    <header className="w-full p-2 min-h-[60px] max-w-[1020px] flex justify-center">
-       <h1 className="text-white uppercase text-4xl font-semibold tracking-widest">parqueadero</h1>
+    <header className="w-full px-4 py-2 min-h-[60px] max-w-[1220px] flex justify-around">
+       <h1 className="text-purple-950 bg-white rounded-3xl p-2 uppercase font-semibold">parqueadero</h1>
+      <ul className="flex gap-2">
+        {
+          links.map((link) => (
+            <li key={link.name} className="text-white uppercase font-semibold ml-4">
+              <a href={link.path}>{link.name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    
     </header>
   )
 }

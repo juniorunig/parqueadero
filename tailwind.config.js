@@ -6,9 +6,16 @@ export default {
   ],
   theme: {
     extend: {
-      textShadow: {
-        'lg': '0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 30px #22c55e, 0 0 40px #22c55e',
+      animation: {
+        typewriter: "typewriter 2s steps(11) forwards"
       },
+      keyframes: {
+        typewriter: {
+          to: {
+            left: "100%"
+          }
+        }
+      }
     },
     
   },
