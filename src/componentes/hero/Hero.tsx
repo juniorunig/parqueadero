@@ -10,7 +10,7 @@ export const Hero = () => {
           En un mundo cada vez más conectado, la optimización del espacio y la
           gestión eficiente son esenciales. Nuestro proyecto de Internet de las
           cosas (IoT) ofrece una solución innovadora para el problema de
-          estacionamiento urbano
+          estacionamiento urbanos 
         </p>
       </div>
       <div className="w-[50%] px-4">
