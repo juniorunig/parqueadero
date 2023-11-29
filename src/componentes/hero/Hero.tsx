@@ -5,7 +5,7 @@ export const Hero = () => {
       id="#home"
     >
       <div className="w-full text-white lg:w-[50%] px-4">
-        <p className="text-lg w-full rounded-lg lg:text-6xl font-bold text-left uppercase lg:w-[500px]  text-gradient bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">
+        <p className="text-lg w-full rounded-lg lg:text-4xl font-bold text-left uppercase lg:w-[500px]  text-gradient bg-gradient-to-r from-white to-purple-500 text-transparent bg-clip-text">
           Sistema de estacionamiento con implementación IoT.
         </p>
         <p className="mt-4">
