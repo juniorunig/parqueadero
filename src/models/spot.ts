@@ -1,6 +1,6 @@
 export type Spot ={
     code: string;
-    state: boolean;
+    state: string;
 }
 
 

@@ -2,7 +2,7 @@ const apiUrl = import.meta.env.VITE_API_URL as string;
 
 type Sensor = {
     code: string ,
-    state: boolean
+    state: string
 }
 
 export type Sensores = {
@@ -21,6 +21,7 @@ type Tsensores = keyof Sensores;
 
 export const getSpots = async () => {
   const sensores = await getSensores();
+  
 
   const spots = Object.keys(sensores).map((key: string) => {
     const sensor = sensores[key as Tsensores];
@@ -30,6 +31,8 @@ export const getSpots = async () => {
     };
   });
 
+  console.log(spots);
+  
   return spots;
 };
 

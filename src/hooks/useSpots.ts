@@ -5,19 +5,19 @@ import { getSpots } from "../service";
 const sides: Spot[] = [
   {
     code: "A1",
-    state: true,
+    state: 'true',
   },
   {
     code: "A2",
-    state: false,
+    state: 'false',
   },
   {
     code: "A3",
-    state: false,
+    state: 'false',
   },
   {
     code: "A5",
-    state: false,
+    state: 'false',
   },
 ];
 
