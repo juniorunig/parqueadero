@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Spot } from "../models";
-import { getSpots } from "../service/service";
+import { getSpots } from "../service";
 
 const sides: Spot[] = [
   {
