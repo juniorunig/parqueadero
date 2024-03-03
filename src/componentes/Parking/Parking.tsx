@@ -18,7 +18,7 @@ const Parking = () => {
         {spots.map((item) => (
           <ParkingSpot
             key={item.code}
-            available={!item.state}
+            available={(item.state === 'true') ? false : true }
             code={item.code}
           />
         ))}
