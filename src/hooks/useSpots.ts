@@ -1,54 +1,70 @@
-import { useEffect, useState } from "react";
-import { service } from "../service";
+import { useEffect, useState, useRef } from "react";
 import { Spot } from "../models";
-
+import { getSpots } from "../service/service";
 
 const sides: Spot[] = [
-    {
-      code: "A1",
-      state: "true",
-    },
-    {
-      code: "A2",
-      state: "false",
-    },
-    {
-      code: "A3",
-      state: "false",
-    },
-    {
-      code: "A5",
-      state: "false",
-    },
-  ];
-
+  {
+    code: "A1",
+    state: true,
+  },
+  {
+    code: "A2",
+    state: false,
+  },
+  {
+    code: "A3",
+    state: false,
+  },
+  {
+    code: "A5",
+    state: false,
+  },
+];
 
 export const useSpots = () => {
   const [spots, setSpots] = useState<Spot[]>([]);
+  const [error, setError] = useState<Error | null>(null);
+  const isMounted = useRef(false);
+  const isLoading = useRef(false);
 
-  const getSpost = () => {
-    service().then((data) => {
-      if (data) {
+  const fetchSpots = async () => {
+    if (isLoading.current) return;
+    isLoading.current = true;
+    try {
+      const data = await getSpots();
+
+      if (isMounted.current) {
         setSpots(data);
-        console.log(data);
-        
-      } else {
-        setSpots(sides);
+        setError(null);
       }
-    }).catch((error) => {   
-        console.log(error);
-        setSpots(sides);        
-    });
+    } catch (error) {
+      if (isMounted.current) {
+        setSpots(sides);
+        setError(error as Error);
+      }
+    } finally {
+      isLoading.current = false;
+    }
   };
 
   useEffect(() => {
-    const interval = setInterval(()=>{
-      getSpost();
-    }, 1000)
-    return ()=>{
-      clearInterval(interval)
-    }
+    isMounted.current = true;
+    fetchSpots();
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
-  return { spots };
+  useEffect(() => {
+    const interval = setInterval(fetchSpots, 2000);
+    console.log({ spots });
+
+    return () => {
+      clearInterval(interval);
+      isMounted.current = false;
+    };
+  }, []);
+
+  return { spots, error };
 };

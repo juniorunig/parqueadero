@@ -1,34 +1,29 @@
-import { Spot } from "../models";
-
 const apiUrl = import.meta.env.VITE_API_URL as string;
- 
 
-const mapToSensor = (data: Spot): Spot => {
+export type Sensor = {
+  sensor1: boolean;
+  sensor2: boolean;
+  sensor3: boolean;
+};
+
+export const getSensores = async (): Promise<Sensor> => {
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+  return data;
+};
+
+type Tsensores = keyof Sensor;
+
+export const getSpots = async () => {
+  const sensores = await getSensores();
+
+  const spots = Object.keys(sensores).map((key: string) => {
+    const sensor = sensores[key as Tsensores];
     return {
-        code: data.code,
-        state: data.state,
+      code: key,
+      state: sensor,
     };
+  });
+
+  return spots;
 };
-
-const service = async (): Promise<Spot[]> => {
-    
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-
-    const spots: Spot[] = Object.keys(data).map((key: string) => {
-        const sensorData = data[key];
-        const sensor: Spot = mapToSensor(sensorData);
-
-        const spot: Spot = {
-            // Assuming Spot interface has a 'sensor' property
-            ...sensor,
-            // Include other Spot properties here if needed
-        };
-        return spot;
-    });
-
-    return spots;
-};
-
-export default service;
- 

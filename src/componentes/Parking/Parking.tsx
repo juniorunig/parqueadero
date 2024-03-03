@@ -3,6 +3,8 @@ import { useSpots } from "../../hooks";
 
 const Parking = () => {
   const { spots } = useSpots();
+  console.log({spots});
+  
 
   return (
     <section
@@ -16,7 +18,7 @@ const Parking = () => {
         {spots.map((item) => (
           <ParkingSpot
             key={item.code}
-            available={item.state === "true" ? true : false}
+            available={!item.state}
             code={item.code}
           />
         ))}
