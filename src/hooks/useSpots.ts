@@ -5,24 +5,24 @@ import { getSpots } from "../service";
 const sides: Spot[] = [
   {
     code: "A1",
-    state: 'true',
+    state: "true",
   },
   {
     code: "A2",
-    state: 'false',
+    state: "false",
   },
   {
     code: "A3",
-    state: 'false',
+    state: "false",
   },
   {
     code: "A5",
-    state: 'false',
+    state: "false",
   },
 ];
 
 export const useSpots = () => {
-  const [spots, setSpots] = useState<Spot[]>([]);
+  const [spots, setSpots] = useState<Spot[] >([]);
   const [error, setError] = useState<Error | null>(null);
   const isMounted = useRef(false);
   const isLoading = useRef(false);
@@ -32,9 +32,16 @@ export const useSpots = () => {
     isLoading.current = true;
     try {
       const data = await getSpots();
-
+      const spots = data.filter((item) => item !== null)
+      .filter((item) => item !== undefined)
+      .filter((item)=> item?.code !== '') as Spot[];
+      
+      if (!spots) {
+        return;
+      }
+      console.log(spots);
       if (isMounted.current) {
-        setSpots(data);
+        setSpots(spots);
         setError(null);
       }
     } catch (error) {

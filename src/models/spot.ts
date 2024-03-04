@@ -1,11 +1,11 @@
 export type Spot ={
-    code: string;
-    state: string;
+    state?: string;
+    code?: string;
 }
 
 
-export type Spots = {
-    spot1: Spot;
-    spot2: Spot;
-    spot3: Spot;
-}
+// export type Spots = {
+//     spot1?: Spot;
+//     spot2?: Spot;
+//     spot3?: Spot;
+// }

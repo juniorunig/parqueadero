@@ -2,10 +2,10 @@ import CarSpotImg from "../../assets/carSpot";
 
 type Props = {
   available: boolean;
-  code: string;
+  code?: string;
 };
 
-const ParkingSpot = ({ available, code }: Props) => {
+const ParkingSpot = ({ available, code='' }: Props) => {
   const isAvailable = available ? "border-red-500" : "border-green-500";
   const isOcupated = available ? "no disponible" : "disponible";
 

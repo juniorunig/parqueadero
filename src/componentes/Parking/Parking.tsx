@@ -17,9 +17,9 @@ const Parking = () => {
       <div className=" grid gap-4 grid-cols-1 lg:grid-cols-2 ">
         {spots.map((item) => (
           <ParkingSpot
-            key={item.code}
-            available={(item.state === 'true') ? true : false }
-            code={item.code}
+            key={item?.code}
+            available={(item?.state === 'true') ? true : false }
+            code={item?.code}
           />
         ))}
       </div>
