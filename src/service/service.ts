@@ -33,7 +33,6 @@ export const getSpots = async () => {
     };
   }).filter((spot)=> spot !== null);
 
-  console.log(spots);
 
   return spots;
 };

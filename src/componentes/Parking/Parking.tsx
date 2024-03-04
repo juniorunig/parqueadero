@@ -3,7 +3,6 @@ import { useSpots } from "../../hooks";
 
 const Parking = () => {
   const { spots } = useSpots();
-  console.log({spots});
   
 
   return (

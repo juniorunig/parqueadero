@@ -39,7 +39,6 @@ export const useSpots = () => {
       if (!spots) {
         return;
       }
-      console.log(spots);
       if (isMounted.current) {
         setSpots(spots);
         setError(null);
@@ -65,7 +64,6 @@ export const useSpots = () => {
 
   useEffect(() => {
     const interval = setInterval(fetchSpots, 2000);
-    console.log({ spots });
 
     return () => {
       clearInterval(interval);
